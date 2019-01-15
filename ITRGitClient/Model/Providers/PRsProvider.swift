@@ -16,6 +16,12 @@ protocol PRsProvider {
                            onCompletion: @escaping CompletionAlias)
 }
 
+struct PRFilterData {
+
+    var startDate: Date = Date(timeIntervalSince1970: 1540512000)
+    var endDate: Date = Date(timeIntervalSince1970: 1547510400)
+}
+
 class DefaultPRsProvider: PRsProvider {
 
     let filterData = PRFilterData()

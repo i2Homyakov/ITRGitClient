@@ -8,12 +8,6 @@
 
 import Foundation
 
-struct PRFilterData {
-
-    var startDate: Date = Date(timeIntervalSince1970: 1540512000)
-    var endDate: Date = Date(timeIntervalSince1970: 1547510400)
-}
-
 struct PRRequestData {
 
     var project: String
