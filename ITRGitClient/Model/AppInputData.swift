@@ -13,4 +13,5 @@ class AppInputData {
     static let project = "discountapp"
     static let repository  = "discountapp-ios"
     static let author = "i2.homyakov"
+    static let reviewer = "a.sleptsov"
 }

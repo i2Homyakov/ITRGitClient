@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     @IBAction func commentsAction(_ sender: Any) {
         getCommentsButton.isEnabled = false
         logTextView.text = nil
-        getFilteredPRsFor()
+        getFilteredPRs()
     }
 
     // MARK: - private
@@ -38,10 +38,11 @@ class MainViewController: UIViewController {
         logTextView.text = lines.joined(separator: "\n")
     }
 
-    private func getFilteredPRsFor() {
-        guard let password = passwordTextField.text else {
+    private func getFilteredPRs() {
+        guard let password = passwordTextField.text, !password.isEmpty else {
             return
         }
+
         provider.getFilteredPRsFor(password: password, onCompletion: { (pullRequests, error) in
             DispatchQueue.main.async { [weak self] in
                 self?.getCommentsButton.isEnabled = true
