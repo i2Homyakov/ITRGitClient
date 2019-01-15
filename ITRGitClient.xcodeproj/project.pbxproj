@@ -8,20 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		1578768E21EC984E00430D0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1578768D21EC984E00430D0E /* AppDelegate.swift */; };
-		1578769021EC984E00430D0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1578768F21EC984E00430D0E /* ViewController.swift */; };
+		1578769021EC984E00430D0E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1578768F21EC984E00430D0E /* MainViewController.swift */; };
 		1578769321EC984E00430D0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1578769121EC984E00430D0E /* Main.storyboard */; };
 		1578769521EC984F00430D0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1578769421EC984F00430D0E /* Assets.xcassets */; };
 		1578769821EC984F00430D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1578769621EC984F00430D0E /* LaunchScreen.storyboard */; };
+		157876A721ECA8CE00430D0E /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876A621ECA8CE00430D0E /* ApiService.swift */; };
+		157876AA21ECAC8500430D0E /* PullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876A921ECAC8500430D0E /* PullRequests.swift */; };
+		157876AC21ECAE5100430D0E /* PullRequestsValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876AB21ECAE5100430D0E /* PullRequestsValue.swift */; };
+		157876AE21ECB04900430D0E /* ApiServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876AD21ECB04900430D0E /* ApiServiceError.swift */; };
+		157876B221ECB16200430D0E /* JsonDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876B121ECB16200430D0E /* JsonDeserializer.swift */; };
+		157876B821ECCBA900430D0E /* JSONDecoder+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876B721ECCBA900430D0E /* JSONDecoder+App.swift */; };
+		157876BB21ECD66A00430D0E /* Date+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876BA21ECD66A00430D0E /* Date+App.swift */; };
+		157876BD21EDAC6900430D0E /* TimeInterval+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876BC21EDAC6900430D0E /* TimeInterval+App.swift */; };
+		157876BF21EDBEEF00430D0E /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876BE21EDBEEF00430D0E /* AsyncOperation.swift */; };
+		157876CC21EDE25600430D0E /* PRsDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876C921EDE25500430D0E /* PRsDownloadOperation.swift */; };
+		157876CD21EDE25600430D0E /* PRApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876CA21EDE25500430D0E /* PRApiService.swift */; };
+		157876CE21EDE25600430D0E /* PRsPageDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876CB21EDE25500430D0E /* PRsPageDownloadOperation.swift */; };
+		157876D021EDE2AD00430D0E /* PRsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876CF21EDE2AD00430D0E /* PRsProvider.swift */; };
+		157876D221EDF38400430D0E /* AppInputData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876D121EDF38400430D0E /* AppInputData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1578768A21EC984E00430D0E /* ITRGitClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ITRGitClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1578768D21EC984E00430D0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1578768F21EC984E00430D0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1578768F21EC984E00430D0E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1578769221EC984E00430D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1578769421EC984F00430D0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1578769721EC984F00430D0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1578769921EC984F00430D0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		157876A621ECA8CE00430D0E /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		157876A921ECAC8500430D0E /* PullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequests.swift; sourceTree = "<group>"; };
+		157876AB21ECAE5100430D0E /* PullRequestsValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestsValue.swift; sourceTree = "<group>"; };
+		157876AD21ECB04900430D0E /* ApiServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceError.swift; sourceTree = "<group>"; };
+		157876B121ECB16200430D0E /* JsonDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDeserializer.swift; sourceTree = "<group>"; };
+		157876B721ECCBA900430D0E /* JSONDecoder+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+App.swift"; sourceTree = "<group>"; };
+		157876BA21ECD66A00430D0E /* Date+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+App.swift"; sourceTree = "<group>"; };
+		157876BC21EDAC6900430D0E /* TimeInterval+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+App.swift"; sourceTree = "<group>"; };
+		157876BE21EDBEEF00430D0E /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		157876C921EDE25500430D0E /* PRsDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRsDownloadOperation.swift; sourceTree = "<group>"; };
+		157876CA21EDE25500430D0E /* PRApiService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRApiService.swift; sourceTree = "<group>"; };
+		157876CB21EDE25500430D0E /* PRsPageDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PRsPageDownloadOperation.swift; sourceTree = "<group>"; };
+		157876CF21EDE2AD00430D0E /* PRsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRsProvider.swift; sourceTree = "<group>"; };
+		157876D121EDF38400430D0E /* AppInputData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInputData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +82,132 @@
 		1578768C21EC984E00430D0E /* ITRGitClient */ = {
 			isa = PBXGroup;
 			children = (
+				157876A121ECA3EC00430D0E /* Model */,
+				157876A221ECA40000430D0E /* View */,
+				157876A321ECA40D00430D0E /* Presenter */,
+				157876B421ECCB8600430D0E /* Common */,
 				1578768D21EC984E00430D0E /* AppDelegate.swift */,
-				1578768F21EC984E00430D0E /* ViewController.swift */,
 				1578769121EC984E00430D0E /* Main.storyboard */,
 				1578769421EC984F00430D0E /* Assets.xcassets */,
 				1578769621EC984F00430D0E /* LaunchScreen.storyboard */,
 				1578769921EC984F00430D0E /* Info.plist */,
 			);
 			path = ITRGitClient;
+			sourceTree = "<group>";
+		};
+		157876A021ECA3DF00430D0E /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				157876CF21EDE2AD00430D0E /* PRsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		157876A121ECA3EC00430D0E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				157876AF21ECB0AD00430D0E /* ApiService */,
+				157876A021ECA3DF00430D0E /* Providers */,
+				157876D121EDF38400430D0E /* AppInputData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		157876A221ECA40000430D0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				157876B921ECCFE200430D0E /* InputViewController */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		157876A321ECA40D00430D0E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		157876AF21ECB0AD00430D0E /* ApiService */ = {
+			isa = PBXGroup;
+			children = (
+				157876C821EDE25500430D0E /* PullRequest */,
+				157876C721EDE21500430D0E /* ApiItems */,
+				157876B021ECB14F00430D0E /* JsonDeserializer */,
+				157876A621ECA8CE00430D0E /* ApiService.swift */,
+				157876AD21ECB04900430D0E /* ApiServiceError.swift */,
+			);
+			path = ApiService;
+			sourceTree = "<group>";
+		};
+		157876B021ECB14F00430D0E /* JsonDeserializer */ = {
+			isa = PBXGroup;
+			children = (
+				157876B121ECB16200430D0E /* JsonDeserializer.swift */,
+			);
+			path = JsonDeserializer;
+			sourceTree = "<group>";
+		};
+		157876B421ECCB8600430D0E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				157876C421EDCAC800430D0E /* Operations */,
+				157876B521ECCB8600430D0E /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		157876B521ECCB8600430D0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				157876B621ECCB8600430D0E /* Foundation */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		157876B621ECCB8600430D0E /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				157876B721ECCBA900430D0E /* JSONDecoder+App.swift */,
+				157876BA21ECD66A00430D0E /* Date+App.swift */,
+				157876BC21EDAC6900430D0E /* TimeInterval+App.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		157876B921ECCFE200430D0E /* InputViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1578768F21EC984E00430D0E /* MainViewController.swift */,
+			);
+			path = InputViewController;
+			sourceTree = "<group>";
+		};
+		157876C421EDCAC800430D0E /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				157876BE21EDBEEF00430D0E /* AsyncOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		157876C721EDE21500430D0E /* ApiItems */ = {
+			isa = PBXGroup;
+			children = (
+				157876A921ECAC8500430D0E /* PullRequests.swift */,
+				157876AB21ECAE5100430D0E /* PullRequestsValue.swift */,
+			);
+			path = ApiItems;
+			sourceTree = "<group>";
+		};
+		157876C821EDE25500430D0E /* PullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				157876C921EDE25500430D0E /* PRsDownloadOperation.swift */,
+				157876CA21EDE25500430D0E /* PRApiService.swift */,
+				157876CB21EDE25500430D0E /* PRsPageDownloadOperation.swift */,
+			);
+			path = PullRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,8 +302,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1578769021EC984E00430D0E /* ViewController.swift in Sources */,
+				157876A721ECA8CE00430D0E /* ApiService.swift in Sources */,
+				1578769021EC984E00430D0E /* MainViewController.swift in Sources */,
+				157876CD21EDE25600430D0E /* PRApiService.swift in Sources */,
+				157876AE21ECB04900430D0E /* ApiServiceError.swift in Sources */,
+				157876BB21ECD66A00430D0E /* Date+App.swift in Sources */,
+				157876B221ECB16200430D0E /* JsonDeserializer.swift in Sources */,
 				1578768E21EC984E00430D0E /* AppDelegate.swift in Sources */,
+				157876AA21ECAC8500430D0E /* PullRequests.swift in Sources */,
+				157876D221EDF38400430D0E /* AppInputData.swift in Sources */,
+				157876AC21ECAE5100430D0E /* PullRequestsValue.swift in Sources */,
+				157876BD21EDAC6900430D0E /* TimeInterval+App.swift in Sources */,
+				157876BF21EDBEEF00430D0E /* AsyncOperation.swift in Sources */,
+				157876D021EDE2AD00430D0E /* PRsProvider.swift in Sources */,
+				157876B821ECCBA900430D0E /* JSONDecoder+App.swift in Sources */,
+				157876CC21EDE25600430D0E /* PRsDownloadOperation.swift in Sources */,
+				157876CE21EDE25600430D0E /* PRsPageDownloadOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
