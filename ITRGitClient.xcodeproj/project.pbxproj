@@ -39,6 +39,7 @@
 		157876EB21EF23D400430D0E /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876EA21EF23D400430D0E /* GroupOperation.swift */; };
 		157876EE21EF418E00430D0E /* CommentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876ED21EF418E00430D0E /* CommentsFormatter.swift */; };
 		157876F021EF43FC00430D0E /* AppInputDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876EF21EF43FC00430D0E /* AppInputDataFormatter.swift */; };
+		157876F321EF4AF900430D0E /* LogsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876F221EF4AF900430D0E /* LogsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		157876EA21EF23D400430D0E /* GroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
 		157876ED21EF418E00430D0E /* CommentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsFormatter.swift; sourceTree = "<group>"; };
 		157876EF21EF43FC00430D0E /* AppInputDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInputDataFormatter.swift; sourceTree = "<group>"; };
+		157876F221EF4AF900430D0E /* LogsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 		157876B421ECCB8600430D0E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				157876F121EF4AF200430D0E /* Managers */,
 				157876EC21EF418000430D0E /* Helpers */,
 				157876C421EDCAC800430D0E /* Operations */,
 				157876B521ECCB8600430D0E /* Extensions */,
@@ -281,6 +284,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		157876F121EF4AF200430D0E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				157876F221EF4AF900430D0E /* LogsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -292,6 +303,7 @@
 				1578768721EC984E00430D0E /* Frameworks */,
 				1578768821EC984E00430D0E /* Resources */,
 				1578769F21EC9CE600430D0E /* ShellScript */,
+				157876F621EF60BF00430D0E /* open comments file */,
 			);
 			buildRules = (
 			);
@@ -366,6 +378,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"error: SwiftLint does not exist, download it from https://github.com/realm/SwiftLint\"\nexit 1\nfi\n";
 		};
+		157876F621EF60BF00430D0E /* open comments file */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "open comments file";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=/Users/i2.homyakov/Library/Developer/CoreSimulator/Devices/09A4EEF3-280F-42CF-B332-B60DCDC47594/data/Containers/Data/Application/B7F73E04-58C0-46D3-91FD-87F5A7650058/Documents/123.txt\nif [ -f $FILE ]; then\n    $FILE\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -381,6 +411,7 @@
 				157876D921EE057A00430D0E /* ActivitiesDownloadOperation.swift in Sources */,
 				157876BB21ECD66A00430D0E /* Date+App.swift in Sources */,
 				157876B221ECB16200430D0E /* JsonDeserializer.swift in Sources */,
+				157876F321EF4AF900430D0E /* LogsManager.swift in Sources */,
 				1578768E21EC984E00430D0E /* AppDelegate.swift in Sources */,
 				157876E521EF01FC00430D0E /* ApiUser.swift in Sources */,
 				157876D421EDFC4900430D0E /* PRCommentsProvider.swift in Sources */,

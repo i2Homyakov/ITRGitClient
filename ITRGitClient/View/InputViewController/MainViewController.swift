@@ -16,6 +16,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var logTextView: UITextView!
 
     private let provider = DefaultMainProvider()
+    private let fileNotSaved = "file not saved"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,13 @@ class MainViewController: UIViewController {
     // MARK: - private
 
     private func showComments(_ comments: [PRComment]) {
-        logTextView.text = CommentsFormatter.stringForComments(comments)
+        let text = CommentsFormatter.stringForComments(comments)
+        logTextView.text = text
+
+        let fileText = AppInputDataFormatter.getString() + "\n" + text
+        if !LogsManager.saveText(fileText) {
+            print(fileNotSaved)
+        }
     }
 
     private func getFilteredPRs() {

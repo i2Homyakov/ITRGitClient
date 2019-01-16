@@ -61,7 +61,7 @@ class DefaultApiService: ApiService {
             }
 
             return
-        } catch let error as NSError {
+        } catch {
             onFailure(error)
             return
         }
