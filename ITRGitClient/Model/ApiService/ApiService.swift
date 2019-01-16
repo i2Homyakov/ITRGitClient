@@ -13,6 +13,7 @@ protocol ApiService {
     var apiUrl: String { get }
 
     func sessionFor(authData: AuthenticationData, onFailure: @escaping (Error) -> Void) -> URLSession?
+    func decodeData<T: Codable>(_ data: Data?, onSuccess: @escaping (T) -> Void, onFailure: @escaping (Error) -> Void)
 }
 
 struct AuthenticationData {
@@ -28,6 +29,8 @@ struct AuthenticationData {
 
 class DefaultApiService: ApiService {
 
+    private let deserializer = JSONDecoder()
+
     let apiUrl = "https://git.itransition.com/rest/api/1.0"
 
     func sessionFor(authData: AuthenticationData, onFailure: @escaping (Error) -> Void) -> URLSession? {
@@ -42,5 +45,25 @@ class DefaultApiService: ApiService {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Authorization": authString]
         return URLSession(configuration: config)
+    }
+
+    func decodeData<T: Codable>(_ data: Data?,
+                                onSuccess: @escaping (T) -> Void,
+                                onFailure: @escaping (Error) -> Void) {
+        guard let data = data else {
+            onFailure(ApiServiceError.unknownError.error())
+            return
+        }
+
+        do {
+            if let decodedObject: T = try deserializer.decodeWith(data: data) {
+                onSuccess(decodedObject)
+            }
+
+            return
+        } catch let error as NSError {
+            onFailure(error)
+            return
+        }
     }
 }

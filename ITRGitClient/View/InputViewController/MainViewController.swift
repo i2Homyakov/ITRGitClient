@@ -14,8 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var getCommentsButton: UIButton!
     @IBOutlet private weak var logTextView: UITextView!
 
-    private let provider = DefaultPRsProvider()
-    private let dateFormat = "dd-MM-yyyy"
+    private let provider = DefaultMainProvider()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +30,11 @@ class MainViewController: UIViewController {
 
     // MARK: - private
 
-    private func showPullRequests(_ pullRequests: [PullRequestsValue]) {
-        let lines = pullRequests.map {
-            String(format: "%d %@", $0.identifier, $0.getCreatedDate().toStringFor(format: dateFormat))
+    private func showComments(_ comments: [PRComment]) {
+        let lines = comments.map {
+            String(format: "%d %@", $0.identifier, $0.text)
         }
-        logTextView.text = lines.joined(separator: "\n")
+        logTextView.text = lines.joined(separator: "\n\n")
     }
 
     private func getFilteredPRs() {
@@ -43,7 +42,7 @@ class MainViewController: UIViewController {
             return
         }
 
-        provider.getFilteredPRsFor(password: password, onCompletion: { (pullRequests, error) in
+        provider.getFilteredCommentsFor(password: password) { (comments, error) in
             DispatchQueue.main.async { [weak self] in
                 self?.getCommentsButton.isEnabled = true
 
@@ -53,9 +52,9 @@ class MainViewController: UIViewController {
                 }
 
                 self?.getCommentsButton.isEnabled = true
-                self?.showPullRequests(pullRequests)
+                self?.showComments(comments)
             }
-        })
+        }
     }
 
 }

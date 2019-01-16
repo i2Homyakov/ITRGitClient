@@ -11,9 +11,9 @@ import Foundation
 class PRsDownloadOperation: AsyncOperation {
 
     private let queue = OperationQueue()
+    private let password: String
 
     private var startPR: Int
-    private var password: String
 
     private(set) var pullRequests: [PullRequestsValue]
     private(set) var error: Error?
@@ -32,16 +32,16 @@ class PRsDownloadOperation: AsyncOperation {
         addNextOperation()
     }
 
+    private func addNextOperation() {
+        let operation = makeOperationForStartPR(startPR)
+        queue.addOperation(operation)
+    }
+
     private func makeOperationForStartPR(_ startPR: Int) -> PRsPageDownloadOperation {
         let operation = PRsPageDownloadOperation(password: password, startPR: startPR)
         operation.completionBlock = makeCompletionBlockForOperation(operation)
 
         return operation
-    }
-
-    private func addNextOperation() {
-        let operation = makeOperationForStartPR(startPR)
-        queue.addOperations([operation], waitUntilFinished: false)
     }
 
     private func makeCompletionBlockForOperation(_ operation: PRsPageDownloadOperation) -> () -> Void {

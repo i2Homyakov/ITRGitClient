@@ -14,4 +14,6 @@ class AppInputData {
     static let repository  = "discountapp-ios"
     static let author = "i2.homyakov"
     static let reviewer = "a.sleptsov"
+    static let startDate = Date(timeIntervalSince1970: 1540512000)
+    static let endDate = Date(timeIntervalSince1970: 1547510400)
 }

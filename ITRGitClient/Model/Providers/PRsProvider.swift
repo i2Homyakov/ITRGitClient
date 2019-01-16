@@ -16,15 +16,15 @@ protocol PRsProvider {
                            onCompletion: @escaping CompletionAlias)
 }
 
-struct PRFilterData {
+struct PRsFilterData {
 
-    var startDate: Date = Date(timeIntervalSince1970: 1540512000)
-    var endDate: Date = Date(timeIntervalSince1970: 1547510400)
+    var startDate = AppInputData.startDate
+    var endDate = AppInputData.endDate
 }
 
 class DefaultPRsProvider: PRsProvider {
 
-    let filterData = PRFilterData()
+    let filterData = PRsFilterData()
 
     func getFilteredPRsFor(password: String,
                            onCompletion: @escaping CompletionAlias) {
@@ -36,10 +36,10 @@ class DefaultPRsProvider: PRsProvider {
     private func completionBlockForOperation(_ operation: PRsDownloadOperation,
                                              onCompletion: @escaping CompletionAlias) -> () -> Void {
         return { [weak self] in
+            guard let filterData = self?.filterData else {
+                return
+            }
             let pullRequests = operation.pullRequests.filter {
-                guard let filterData = self?.filterData else {
-                    return false
-                }
                 let createdDate = $0.getCreatedDate()
                 return filterData.startDate <= createdDate && createdDate <= filterData.endDate
             }
