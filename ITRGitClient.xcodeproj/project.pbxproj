@@ -37,6 +37,8 @@
 		157876E721EF02E500430D0E /* PRComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876E621EF02E500430D0E /* PRComment.swift */; };
 		157876E921EF104500430D0E /* PRActivitiesDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876E821EF104500430D0E /* PRActivitiesDownloadOperation.swift */; };
 		157876EB21EF23D400430D0E /* GroupOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876EA21EF23D400430D0E /* GroupOperation.swift */; };
+		157876EE21EF418E00430D0E /* CommentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876ED21EF418E00430D0E /* CommentsFormatter.swift */; };
+		157876F021EF43FC00430D0E /* AppInputDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157876EF21EF43FC00430D0E /* AppInputDataFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +74,8 @@
 		157876E621EF02E500430D0E /* PRComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRComment.swift; sourceTree = "<group>"; };
 		157876E821EF104500430D0E /* PRActivitiesDownloadOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PRActivitiesDownloadOperation.swift; sourceTree = "<group>"; };
 		157876EA21EF23D400430D0E /* GroupOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOperation.swift; sourceTree = "<group>"; };
+		157876ED21EF418E00430D0E /* CommentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsFormatter.swift; sourceTree = "<group>"; };
+		157876EF21EF43FC00430D0E /* AppInputDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInputDataFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +180,7 @@
 		157876B421ECCB8600430D0E /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				157876EC21EF418000430D0E /* Helpers */,
 				157876C421EDCAC800430D0E /* Operations */,
 				157876B521ECCB8600430D0E /* Extensions */,
 			);
@@ -265,6 +270,15 @@
 				157876E221EF015C00430D0E /* PRActivity.swift */,
 			);
 			path = PRActivities;
+			sourceTree = "<group>";
+		};
+		157876EC21EF418000430D0E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				157876ED21EF418E00430D0E /* CommentsFormatter.swift */,
+				157876EF21EF43FC00430D0E /* AppInputDataFormatter.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,10 +384,12 @@
 				1578768E21EC984E00430D0E /* AppDelegate.swift in Sources */,
 				157876E521EF01FC00430D0E /* ApiUser.swift in Sources */,
 				157876D421EDFC4900430D0E /* PRCommentsProvider.swift in Sources */,
+				157876F021EF43FC00430D0E /* AppInputDataFormatter.swift in Sources */,
 				157876AA21ECAC8500430D0E /* PullRequests.swift in Sources */,
 				157876D221EDF38400430D0E /* AppInputData.swift in Sources */,
 				157876EB21EF23D400430D0E /* GroupOperation.swift in Sources */,
 				157876AC21ECAE5100430D0E /* PullRequestsValue.swift in Sources */,
+				157876EE21EF418E00430D0E /* CommentsFormatter.swift in Sources */,
 				157876BD21EDAC6900430D0E /* TimeInterval+App.swift in Sources */,
 				157876E321EF015C00430D0E /* PRActivity.swift in Sources */,
 				157876E721EF02E500430D0E /* PRComment.swift in Sources */,

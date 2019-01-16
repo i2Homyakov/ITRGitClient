@@ -15,4 +15,11 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
     }
+
+    static func dateFromString(_ dateString: String, format: String) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        let tmp = formatter.date(from: dateString)
+        return tmp
+    }
 }

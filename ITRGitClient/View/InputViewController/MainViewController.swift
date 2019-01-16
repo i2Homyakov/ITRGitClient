@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet private weak var parametersLabel: UILabel!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var getCommentsButton: UIButton!
     @IBOutlet private weak var logTextView: UITextView!
@@ -18,6 +19,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        showParameters()
     }
 
     // MARK: - Events
@@ -31,10 +33,7 @@ class MainViewController: UIViewController {
     // MARK: - private
 
     private func showComments(_ comments: [PRComment]) {
-        let lines = comments.map {
-            String(format: "%d %@", $0.identifier, $0.text)
-        }
-        logTextView.text = lines.joined(separator: "\n\n")
+        logTextView.text = CommentsFormatter.stringForComments(comments)
     }
 
     private func getFilteredPRs() {
@@ -57,4 +56,7 @@ class MainViewController: UIViewController {
         }
     }
 
+    private func showParameters() {
+        parametersLabel.text = AppInputDataFormatter.getString()
+    }
 }
