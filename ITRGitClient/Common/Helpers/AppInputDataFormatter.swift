@@ -19,8 +19,8 @@ class AppInputDataFormatter {
                                         "endDate": AppInputData.endDate.toStringFor(format: dateFormat)]
     static private let orderedNames = ["project", "repository", "author", "reviewer", "startDate", "endDate"]
 
-    static func getString () -> String {
-        let lines = orderedNames.map { String(format: "%@: %@", $0, allParameters[$0] ?? "") }
+    static func getText () -> String {
+        let lines = orderedNames.map { String(format: "%@: %@", $0, allParameters[$0] ?? .empty) }
         return lines.joined(separator: "\n")
     }
 }

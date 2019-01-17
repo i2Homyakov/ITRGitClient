@@ -10,7 +10,7 @@ import Foundation
 
 class ActivitiesDownloadOperation: GroupOperation {
 
-    private let addActivitiesToken = "addActivities"
+    private let activitiesQueue = DispatchQueue(label: "activities")
 
     private(set) var activities: [PRActivity]
     private(set) var error: Error?
@@ -45,8 +45,7 @@ class ActivitiesDownloadOperation: GroupOperation {
     }
 
     private func addActivities(_ activities: [PRActivity]) {
-        let serialQueue = DispatchQueue(label: "addActivitiesToken")
-        serialQueue.sync { [weak self] in
+        activitiesQueue.sync { [weak self] in
             self?.activities.append(contentsOf: activities)
         }
     }

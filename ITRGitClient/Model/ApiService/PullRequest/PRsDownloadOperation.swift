@@ -10,6 +10,7 @@ import Foundation
 
 class PRsDownloadOperation: AsyncOperation {
 
+    private let defaultStartPR = 0
     private let queue = OperationQueue()
     private let password: String
 
@@ -19,7 +20,7 @@ class PRsDownloadOperation: AsyncOperation {
     private(set) var error: Error?
 
     init(password: String) {
-        startPR = 0
+        startPR = defaultStartPR
         self.password = password
         pullRequests = []
         super.init()

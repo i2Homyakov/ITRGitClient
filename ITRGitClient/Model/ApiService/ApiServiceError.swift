@@ -23,13 +23,13 @@ enum ApiServiceError: Int {
 
         switch self {
         case .not200:
-            return NSLocalizedString("MessageFailToConnect", comment: "")
+            return NSLocalizedString("MessageFailToConnect", comment: .empty)
         case .incorrectData:
-            return NSLocalizedString("IncorrectServerData", comment: "")
+            return NSLocalizedString("IncorrectServerData", comment: .empty)
         case .operationCanceled:
-            return NSLocalizedString("OperationCanceled", comment: "")
+            return NSLocalizedString("OperationCanceled", comment: .empty)
         default:
-            return NSLocalizedString("UnknownError", comment: "")
+            return NSLocalizedString("UnknownError", comment: .empty)
         }
     }
 

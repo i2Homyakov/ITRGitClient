@@ -20,7 +20,7 @@ struct PRActivity: Codable {
 
     let identifier: Int
     let user: ApiUser
-    let action: String?
+    let action: String
     let commentAction: String?
     let comment: PRComment?
 

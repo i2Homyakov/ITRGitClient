@@ -10,7 +10,7 @@ import Foundation
 
 protocol MainProvider {
 
-    typealias CompletionAlias = ([PRComment], Error?) -> Void
+    typealias CompletionAlias = ([LogComment], Error?) -> Void
 
     func getFilteredCommentsFor(password: String,
                                 onCompletion: @escaping CompletionAlias)

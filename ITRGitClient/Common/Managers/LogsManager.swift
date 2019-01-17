@@ -11,15 +11,14 @@ import Foundation
 class LogsManager {
 
     static private let fileExtension = ".txt"
-    static private let timeFormat = "HH mm dd.MM.yyyy"
+    static private let timeFormat = "HH-mm-ss dd.MM.yyyy"
 
     static func saveText(_ text: String,
                          withFileName fileName: String = Date().toStringFor(format: timeFormat)) -> Bool {
         guard let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return false
         }
-//        let path = documentsUrl.appendingPathComponent(fileName + fileExtension).path
-        let path = documentsUrl.appendingPathComponent("123" + fileExtension).path
+        let path = documentsUrl.appendingPathComponent(fileName + fileExtension).path
         let contents = text.data(using: .utf8)
         return FileManager.default.createFile(atPath: path, contents: contents)
     }

@@ -13,7 +13,7 @@ struct PRComment: Codable {
     let identifier: Int
     let author: ApiUser
     let text: String
-    let comments: [PRComment] // TODO: take into account.
+    let comments: [PRComment]
 
     enum CodingKeys: String, CodingKey {
         case identifier = "id"

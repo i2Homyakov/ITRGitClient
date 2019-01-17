@@ -10,7 +10,7 @@ import Foundation
 
 protocol PRCommentsProvider {
 
-    typealias CompletionAlias = ([PRComment], Error?) -> Void
+    typealias CompletionAlias = ([LogComment], Error?) -> Void
 
     func getFilteredCommentsFor(password: String,
                                 prIDs: [Int],
@@ -40,7 +40,8 @@ class DefaultPRCommentsProvider: PRCommentsProvider {
             guard let strongSelf = self else {
                 return
             }
-            let comments = operation.activities.compactMap { $0.isComment ? $0.comment : nil }
+            let prComments = operation.activities.compactMap { $0.isComment ? $0.comment : nil }
+            let comments = prComments.map { LogComment.commentsFromPRComment($0) }.reduce([], +)
             let filteredComments = comments.filter { strongSelf.filterData.reviewer == $0.author.slug }
             onCompletion(filteredComments, operation.error)
         }

@@ -10,10 +10,34 @@ import Foundation
 
 class CommentsFormatter {
 
-    static private let format = "//** %d **//\n%@"
+    static private let commentSeparator = "\n\n"
+    static private let format = "//** %d%@%@ **//\n{\n%@\n}"
+    static private let investmentLevelFormat = " ** level: %@"
+    static private let investmentLevelRoot = "root"
+    static private let rootLevel = 0
+    static private let parentIdFormat = " ** parent: %d"
 
-    static func stringForComments(_ comments: [PRComment]) -> String {
-        let lines = comments.map { String(format: format, $0.identifier, $0.text) }
-        return lines.joined(separator: "\n\n")
+    static func textForComments(_ comments: [LogComment]) -> String {
+        let lines = comments.map { lineForComment($0) }
+        return lines.joined(separator: commentSeparator)
+    }
+
+    static private func lineForComment(_ comment: LogComment) -> String {
+        return String(format: format,
+                      comment.identifier,
+                      labelForInvestmentLevel(comment.nestingLevel),
+                      labelForParentId(comment.parentId),
+                      comment.text)
+    }
+
+    static private func labelForInvestmentLevel(_ level: Int) -> String {
+        return String(format: investmentLevelFormat, level == 0 ? investmentLevelRoot : String(level))
+    }
+
+    static private func labelForParentId(_ parentId: Int?) -> String {
+        guard let parentId = parentId else {
+            return .empty
+        }
+        return String(format: parentIdFormat, parentId)
     }
 }
