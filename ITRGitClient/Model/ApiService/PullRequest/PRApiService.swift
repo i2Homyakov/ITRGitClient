@@ -14,8 +14,10 @@ struct PRRequestData {
     var repository: String
     var author: String
     var startPR: Int
+    var password: String
 
-    init(startPR: Int) {
+    init(password: String, startPR: Int) {
+        self.password = password
         self.startPR = startPR
         project = AppInputData.project
         repository = AppInputData.repository
@@ -26,7 +28,6 @@ struct PRRequestData {
 protocol PRApiService {
 
     func getPRsFor(requestData: PRRequestData,
-                   password: String,
                    onSuccess: @escaping (PullRequests) -> Void,
                    onFailure: @escaping (Error) -> Void)
 }
@@ -40,7 +41,6 @@ class DefaultPRApiService: PRApiService {
     private let apiService: ApiService = DefaultApiService()
 
     func getPRsFor(requestData: PRRequestData,
-                   password: String,
                    onSuccess: @escaping (PullRequests) -> Void,
                    onFailure: @escaping (Error) -> Void) {
         let urlString = apiService.apiUrl.appendingFormat(
@@ -50,7 +50,7 @@ class DefaultPRApiService: PRApiService {
             return
         }
 
-        let session = apiService.sessionFor(authData: AuthenticationData(password: password), onFailure: onFailure)
+        let session = apiService.sessionFor(authData: AuthenticationData(password: requestData.password), onFailure: onFailure)
         session?.dataTask(with: url,
                           completionHandler: taskCompletionHandlerFor(
                             onSuccess: onSuccess, onFailure: onFailure)).resume()
@@ -85,11 +85,8 @@ class DefaultPRApiService: PRApiService {
             if let pullRequests: PullRequests = try deserializer.decodeWith(data: data) {
                 onSuccess(pullRequests)
             }
-
-            return
         } catch let error as NSError {
             onFailure(error)
-            return
         }
     }
 

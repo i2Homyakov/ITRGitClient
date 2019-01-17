@@ -34,7 +34,7 @@ class DefaultPRsProvider: PRsProvider {
     }
 
     private func completionBlockForOperation(_ operation: PRsDownloadOperation,
-                                             onCompletion: @escaping CompletionAlias) -> () -> Void {
+                                             onCompletion: @escaping CompletionAlias) -> (() -> Void) {
         return { [weak self] in
             let pullRequests = operation.pullRequests.filter {
                 guard let filterData = self?.filterData else {

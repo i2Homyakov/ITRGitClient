@@ -21,7 +21,7 @@ struct AuthenticationData {
     var password: String
 
     init(password: String) {
-        login = "i2.homyakov"
+        login = AppInputData.login
         self.password = password
     }
 }

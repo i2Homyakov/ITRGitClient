@@ -11,15 +11,13 @@ import Foundation
 class PRsPageDownloadOperation: AsyncOperation {
 
     private let apiService: PRApiService = DefaultPRApiService()
-    private let password: String
     private let requestData: PRRequestData
 
     private(set) var pullRequests: PullRequests?
     private(set) var error: Error?
 
     init(password: String, startPR: Int) {
-        self.password = password
-        requestData = PRRequestData(startPR: startPR)
+        requestData = PRRequestData(password: password, startPR: startPR)
         super.init()
     }
 
@@ -28,7 +26,7 @@ class PRsPageDownloadOperation: AsyncOperation {
             return
         }
 
-        apiService.getPRsFor(requestData: requestData, password: password, onSuccess: { [weak self] pullRequests in
+        apiService.getPRsFor(requestData: requestData, onSuccess: { [weak self] pullRequests in
             self?.pullRequests = pullRequests
             self?.state = .finished
         }, onFailure: { [weak self] error in

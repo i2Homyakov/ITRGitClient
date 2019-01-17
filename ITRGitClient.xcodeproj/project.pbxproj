@@ -84,7 +84,6 @@
 			children = (
 				157876A121ECA3EC00430D0E /* Model */,
 				157876A221ECA40000430D0E /* View */,
-				157876A321ECA40D00430D0E /* Presenter */,
 				157876B421ECCB8600430D0E /* Common */,
 				1578768D21EC984E00430D0E /* AppDelegate.swift */,
 				1578769121EC984E00430D0E /* Main.storyboard */,
@@ -119,13 +118,6 @@
 				157876B921ECCFE200430D0E /* InputViewController */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		157876A321ECA40D00430D0E /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Presenter;
 			sourceTree = "<group>";
 		};
 		157876AF21ECB0AD00430D0E /* ApiService */ = {
