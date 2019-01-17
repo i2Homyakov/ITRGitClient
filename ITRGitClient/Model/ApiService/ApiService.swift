@@ -11,7 +11,7 @@ import Foundation
 typealias SessionOnCompletion = (Data?, URLResponse?, Error?) -> Void
 
 enum HttpStatusCode: Int {
-    case okay
+    case okay = 200
 
     var code: Int {
         return self.rawValue

@@ -172,10 +172,10 @@
 		157876AF21ECB0AD00430D0E /* ApiService */ = {
 			isa = PBXGroup;
 			children = (
-				157876D521EDFCC700430D0E /* PRActivities */,
-				157876C821EDE25500430D0E /* PullRequest */,
-				157876C721EDE21500430D0E /* ApiItems */,
 				157876B021ECB14F00430D0E /* JsonDeserializer */,
+				157876C721EDE21500430D0E /* ApiItems */,
+				157876C821EDE25500430D0E /* PullRequest */,
+				157876D521EDFCC700430D0E /* PRActivities */,
 				157876A621ECA8CE00430D0E /* ApiService.swift */,
 				157876AD21ECB04900430D0E /* ApiServiceError.swift */,
 			);
