@@ -33,8 +33,6 @@ struct PRRequestData {
 
 class DefaultPRApiService: PRApiService {
 
-    typealias SessionOnCompletion = (Data?, URLResponse?, Error?) -> Void
-
     private let parametersFormat = "/projects/%@/repos/%@/pull-requests?state=ALL&author=%@&start=%d"
     private let deserializer = JSONDecoder()
     private let apiService: ApiService = DefaultApiService()
@@ -52,19 +50,19 @@ class DefaultPRApiService: PRApiService {
 
         let session = apiService.sessionFor(authData: AuthenticationData(password: password), onFailure: onFailure)
         session?.dataTask(with: url,
-                          completionHandler: taskCompletionHandlerFor(
+                          completionHandler: sessionCompletionHandlerFor(
                             onSuccess: onSuccess, onFailure: onFailure)).resume()
     }
 
-    private func taskCompletionHandlerFor(onSuccess: @escaping (PullRequests) -> Void,
-                                          onFailure: @escaping (Error) -> Void) -> SessionOnCompletion {
+    private func sessionCompletionHandlerFor(onSuccess: @escaping (PullRequests) -> Void,
+                                             onFailure: @escaping (Error) -> Void) -> SessionOnCompletion {
         return { [weak self] (data, response, error) in
             if let error = error {
                 onFailure(error)
                 return
             }
 
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            guard let response = response as? HTTPURLResponse, response.statusCode == HttpStatusCode.okay.code else {
                 onFailure(ApiServiceError.not200.error())
                 return
             }

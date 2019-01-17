@@ -8,12 +8,14 @@
 
 import Foundation
 
-protocol ApiService {
+typealias SessionOnCompletion = (Data?, URLResponse?, Error?) -> Void
 
-    var apiUrl: String { get }
+enum HttpStatusCode: Int {
+    case okay
 
-    func sessionFor(authData: AuthenticationData, onFailure: @escaping (Error) -> Void) -> URLSession?
-    func decodeData<T: Codable>(_ data: Data?, onSuccess: @escaping (T) -> Void, onFailure: @escaping (Error) -> Void)
+    var code: Int {
+        return self.rawValue
+    }
 }
 
 struct AuthenticationData {
@@ -25,6 +27,14 @@ struct AuthenticationData {
         login = "i2.homyakov"
         self.password = password
     }
+}
+
+protocol ApiService {
+
+    var apiUrl: String { get }
+
+    func sessionFor(authData: AuthenticationData, onFailure: @escaping (Error) -> Void) -> URLSession?
+    func decodeData<T: Codable>(_ data: Data?, onSuccess: @escaping (T) -> Void, onFailure: @escaping (Error) -> Void)
 }
 
 class DefaultApiService: ApiService {
