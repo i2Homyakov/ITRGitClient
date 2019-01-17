@@ -10,12 +10,14 @@ import Foundation
 
 struct PRActivitiesRequestData {
 
-    var project: String
-    var repository: String
-    var prID: Int
+    let project: String
+    let repository: String
+    let prID: Int
     var startActivity: Int
+    let password: String
 
-    init(prID: Int, startActivity: Int) {
+    init(password: String, prID: Int, startActivity: Int) {
+        self.password = password
         self.prID = prID
         self.startActivity = startActivity
         project = AppInputData.project
@@ -26,7 +28,6 @@ struct PRActivitiesRequestData {
 protocol PRActivitiesApiService {
 
     func getActivitiesFor(requestData: PRActivitiesRequestData,
-                          password: String,
                           onSuccess: @escaping (PRActivities) -> Void,
                           onFailure: @escaping (Error) -> Void)
 }
@@ -37,7 +38,6 @@ class DefaultPRActivitiesApiService: PRActivitiesApiService {
     private let apiService: ApiService = DefaultApiService()
 
     func getActivitiesFor(requestData: PRActivitiesRequestData,
-                          password: String,
                           onSuccess: @escaping (PRActivities) -> Void,
                           onFailure: @escaping (Error) -> Void) {
         let urlString = apiService.apiUrl.appendingFormat(
@@ -47,7 +47,8 @@ class DefaultPRActivitiesApiService: PRActivitiesApiService {
             return
         }
 
-        let session = apiService.sessionFor(authData: AuthenticationData(password: password), onFailure: onFailure)
+        let session = apiService.sessionFor(authData: AuthenticationData(password: requestData.password),
+                                            onFailure: onFailure)
         session?.dataTask(with: url,
                           completionHandler: sessionCompletionHandlerFor(
                             onSuccess: onSuccess, onFailure: onFailure)).resume()

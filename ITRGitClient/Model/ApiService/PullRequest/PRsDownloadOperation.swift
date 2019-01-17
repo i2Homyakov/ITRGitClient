@@ -16,7 +16,7 @@ class PRsDownloadOperation: AsyncOperation {
 
     private var startPR: Int
 
-    private(set) var pullRequests: [PullRequestsValue]
+    private(set) var pullRequests: [PullRequest]
     private(set) var error: Error?
 
     init(password: String) {
@@ -59,7 +59,7 @@ class PRsDownloadOperation: AsyncOperation {
                 return
             }
 
-            self?.pullRequests.append(contentsOf: pullRequests.values)
+            self?.pullRequests.append(contentsOf: pullRequests.items)
 
             if pullRequests.isLastPage {
                 self?.state = .finished

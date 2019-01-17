@@ -12,7 +12,6 @@ class PRActivitiesDownloadOperation: AsyncOperation {
 
     private let defaultStartActivity = 0
     private let queue = OperationQueue()
-    private let password: String
 
     private var requestData: PRActivitiesRequestData
 
@@ -20,8 +19,7 @@ class PRActivitiesDownloadOperation: AsyncOperation {
     private(set) var error: Error?
 
     init(password: String, prID: Int) {
-        requestData = PRActivitiesRequestData(prID: prID, startActivity: defaultStartActivity)
-        self.password = password
+        requestData = PRActivitiesRequestData(password: password, prID: prID, startActivity: defaultStartActivity)
         activities = []
         super.init()
     }
@@ -37,7 +35,7 @@ class PRActivitiesDownloadOperation: AsyncOperation {
     }
 
     private func makeOperation() -> PRActivitiesPageDownloadOperation {
-        let operation = PRActivitiesPageDownloadOperation(password: password, requestData: requestData)
+        let operation = PRActivitiesPageDownloadOperation(requestData: requestData)
         operation.completionBlock = makeCompletionBlockForOperation(operation)
 
         return operation

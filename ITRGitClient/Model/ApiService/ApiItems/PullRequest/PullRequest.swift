@@ -1,5 +1,5 @@
 //
-//  PullRequestsValue.swift
+//  PullRequest.swift
 //  ITRGitClient
 //
 //  Created by Homyakov, Ilya2 on 14/01/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PullRequestsValue: Codable {
+struct PullRequest: Codable {
 
     let identifier: Int
     let createdDate: Int64
@@ -18,7 +18,7 @@ struct PullRequestsValue: Codable {
         case createdDate
     }
 
-    func getCreatedDate() -> Date {
+    func getCreationDate() -> Date {
         return Date(timeIntervalSince1970: TimeInterval.intervalFromMilliseconds(createdDate))
     }
 }

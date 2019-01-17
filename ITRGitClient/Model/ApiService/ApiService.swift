@@ -20,11 +20,11 @@ enum HttpStatusCode: Int {
 
 struct AuthenticationData {
 
-    var login: String
-    var password: String
+    let login: String
+    let password: String
 
     init(password: String) {
-        login = "i2.homyakov"
+        login = AppInputData.login
         self.password = password
     }
 }
@@ -69,11 +69,8 @@ class DefaultApiService: ApiService {
             if let decodedObject: T = try deserializer.decodeWith(data: data) {
                 onSuccess(decodedObject)
             }
-
-            return
         } catch {
             onFailure(error)
-            return
         }
     }
 }

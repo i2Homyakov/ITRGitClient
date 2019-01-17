@@ -35,7 +35,7 @@ class DefaultPRCommentsProvider: PRCommentsProvider {
     }
 
     private func completionBlockForOperation(_ operation: ActivitiesDownloadOperation,
-                                             onCompletion: @escaping CompletionAlias) -> () -> Void {
+                                             onCompletion: @escaping CompletionAlias) -> (() -> Void) {
         return { [weak self] in
             guard let strongSelf = self else {
                 return

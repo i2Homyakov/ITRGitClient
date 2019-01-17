@@ -11,14 +11,12 @@ import Foundation
 class PRActivitiesPageDownloadOperation: AsyncOperation {
 
     private let apiService: PRActivitiesApiService = DefaultPRActivitiesApiService()
-    private let password: String
     private let requestData: PRActivitiesRequestData
 
     private(set) var activities: PRActivities?
     private(set) var error: Error?
 
-    init(password: String, requestData: PRActivitiesRequestData) {
-        self.password = password
+    init(requestData: PRActivitiesRequestData) {
         self.requestData = requestData
         super.init()
     }
@@ -28,7 +26,7 @@ class PRActivitiesPageDownloadOperation: AsyncOperation {
             return
         }
 
-        apiService.getActivitiesFor(requestData: requestData, password: password, onSuccess: { [weak self] activities in
+        apiService.getActivitiesFor(requestData: requestData, onSuccess: { [weak self] activities in
             self?.activities = activities
             self?.state = .finished
             }, onFailure: { [weak self] error in

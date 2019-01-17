@@ -8,27 +8,28 @@
 
 import Foundation
 
-protocol PRApiService {
-
-    func getPRsFor(requestData: PRRequestData,
-                   password: String,
-                   onSuccess: @escaping (PullRequests) -> Void,
-                   onFailure: @escaping (Error) -> Void)
-}
-
 struct PRRequestData {
 
-    var project: String
-    var repository: String
-    var author: String
-    var startPR: Int
+    let project: String
+    let repository: String
+    let author: String
+    let startPR: Int
+    let password: String
 
-    init(startPR: Int) {
+    init(password: String, startPR: Int) {
+        self.password = password
         self.startPR = startPR
         project = AppInputData.project
         repository = AppInputData.repository
         author = AppInputData.author
     }
+}
+
+protocol PRApiService {
+
+    func getPRsFor(requestData: PRRequestData,
+                   onSuccess: @escaping (PullRequests) -> Void,
+                   onFailure: @escaping (Error) -> Void)
 }
 
 class DefaultPRApiService: PRApiService {
@@ -38,7 +39,6 @@ class DefaultPRApiService: PRApiService {
     private let apiService: ApiService = DefaultApiService()
 
     func getPRsFor(requestData: PRRequestData,
-                   password: String,
                    onSuccess: @escaping (PullRequests) -> Void,
                    onFailure: @escaping (Error) -> Void) {
         let urlString = apiService.apiUrl.appendingFormat(
@@ -48,7 +48,8 @@ class DefaultPRApiService: PRApiService {
             return
         }
 
-        let session = apiService.sessionFor(authData: AuthenticationData(password: password), onFailure: onFailure)
+        let session = apiService.sessionFor(authData: AuthenticationData(password: requestData.password),
+                                            onFailure: onFailure)
         session?.dataTask(with: url,
                           completionHandler: sessionCompletionHandlerFor(
                             onSuccess: onSuccess, onFailure: onFailure)).resume()

@@ -10,12 +10,12 @@ import Foundation
 
 struct PullRequests: Codable {
 
-    var values: [PullRequestsValue]
+    var items: [PullRequest]
     var isLastPage: Bool
     var nextPageStart: Int?
 
     enum CodingKeys: String, CodingKey {
-        case values
+        case items = "values"
         case isLastPage
         case nextPageStart
     }
