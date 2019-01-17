@@ -14,7 +14,7 @@ class LogsManager {
     static private let timeFormat = "HH-mm-ss dd.MM.yyyy"
 
     static func saveText(_ text: String,
-                         withFileName fileName: String = Date().toStringFor(format: timeFormat)) -> Bool {
+                         withFileName fileName: String = Date().toStringWithFormat(timeFormat)) -> Bool {
         guard let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return false
         }

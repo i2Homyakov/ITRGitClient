@@ -15,8 +15,8 @@ class AppInputDataFormatter {
                                         "repository": AppInputData.repository,
                                         "author": AppInputData.author,
                                         "reviewer": AppInputData.reviewer,
-                                        "startDate": AppInputData.startDate.toStringFor(format: dateFormat),
-                                        "endDate": AppInputData.endDate.toStringFor(format: dateFormat)]
+                                        "startDate": AppInputData.startDate.toStringWithFormat(dateFormat),
+                                        "endDate": AppInputData.endDate.toStringWithFormat(dateFormat)]
     static private let orderedNames = ["project", "repository", "author", "reviewer", "startDate", "endDate"]
 
     static func getText () -> String {
