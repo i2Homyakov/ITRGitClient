@@ -10,7 +10,7 @@ import Foundation
 
 protocol PRsProvider {
 
-    typealias CompletionAlias = ([PullRequestsValue], Error?) -> Void
+    typealias CompletionAlias = ([PullRequest], Error?) -> Void
 
     func getFilteredPRsFor(password: String,
                            onCompletion: @escaping CompletionAlias)
@@ -40,7 +40,7 @@ class DefaultPRsProvider: PRsProvider {
                 guard let filterData = self?.filterData else {
                     return false
                 }
-                let createdDate = $0.getCreatedDate()
+                let createdDate = $0.getCreationDate()
                 return filterData.startDate <= createdDate && createdDate <= filterData.endDate
             }
             onCompletion(pullRequests, operation.error)

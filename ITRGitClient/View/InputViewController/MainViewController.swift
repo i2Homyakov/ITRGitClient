@@ -31,9 +31,9 @@ class MainViewController: UIViewController {
 
     // MARK: - private
 
-    private func showPullRequests(_ pullRequests: [PullRequestsValue]) {
+    private func showPullRequests(_ pullRequests: [PullRequest]) {
         let lines = pullRequests.map {
-            String(format: "%d %@", $0.identifier, $0.getCreatedDate().toStringFor(format: dateFormat))
+            String(format: "%d %@", $0.identifier, $0.getCreationDate().toStringFor(format: dateFormat))
         }
         logTextView.text = lines.joined(separator: "\n")
     }
