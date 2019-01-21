@@ -42,7 +42,9 @@ class DefaultPRCommentsProvider: PRCommentsProvider {
             }
             let prComments = operation.activities.compactMap { $0.isComment ? $0.comment : nil }
             let comments = prComments.map { LogComment.commentsFromPRComment($0) }.reduce([], +)
-            let filteredComments = comments.filter { strongSelf.filterData.reviewer == $0.author.slug }
+            let filteredComments = strongSelf.filterData.reviewer.isEmpty
+                ? comments
+                : comments.filter { strongSelf.filterData.reviewer == $0.author.slug }
             onCompletion(filteredComments, operation.error)
         }
     }

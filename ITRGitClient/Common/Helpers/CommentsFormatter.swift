@@ -11,11 +11,12 @@ import Foundation
 class CommentsFormatter {
 
     static private let commentSeparator = "\n\n"
-    static private let format = "//** %d%@%@ **//\n{\n%@\n}"
+    static private let format = "//** %d%@%@%@ **//\n{\n%@\n}"
     static private let investmentLevelFormat = " ** level: %@"
     static private let investmentLevelRoot = "root"
     static private let rootLevel = 0
     static private let parentIdFormat = " ** parent: %d"
+    static private let authorFormat = " ** author: %@"
 
     static func textForComments(_ comments: [LogComment]) -> String {
         let lines = comments.map { lineForComment($0) }
@@ -25,6 +26,7 @@ class CommentsFormatter {
     static private func lineForComment(_ comment: LogComment) -> String {
         return String(format: format,
                       comment.identifier,
+                      labelForAuthor(comment.author.displayName),
                       labelForInvestmentLevel(comment.nestingLevel),
                       labelForParentId(comment.parentId),
                       comment.text)
@@ -39,5 +41,12 @@ class CommentsFormatter {
             return .empty
         }
         return String(format: parentIdFormat, parentId)
+    }
+
+    static private func labelForAuthor(_ author: String) -> String {
+        if AppInputData.author.isEmpty {
+            return .empty
+        }
+        return String(format: authorFormat, author)
     }
 }
